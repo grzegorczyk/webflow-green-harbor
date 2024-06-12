@@ -1,3 +1,3 @@
 import './styles/style.scss';
 
-import './scripts/text';
+import './scripts/navigation';
