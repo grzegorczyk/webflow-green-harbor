@@ -1,0 +1,18 @@
+###> os ###
+*~
+.DS_Store
+###< os ###
+
+###> ide ###
+.idea/*
+.php-version
+php.ini
+###< ide ###
+
+node_modules/
+src/
+package.json
+package-lock.json
+README.md
+webpack.config.js
+.gitignore
