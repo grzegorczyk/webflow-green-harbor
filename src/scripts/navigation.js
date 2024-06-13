@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
+    const navLinks = document.querySelectorAll('.nav-link');
     const animation = document.querySelector('.animation');
     const offset = 200; // Offset von 200px
     let sections = [];
 
     // Dynamically get all sections based on nav links
-    navItems.forEach(item => {
-        const link = item.querySelector('.nav-link');
+    navLinks.forEach(link => {
         const sectionId = link.getAttribute('href').substring(1);
         const section = document.getElementById(sectionId);
         if (section) {
@@ -32,8 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         while (--index && window.scrollY + offset < sections[index].offsetTop) {}
 
         navItems.forEach(item => item.classList.remove('active'));
+        navLinks.forEach(link => link.classList.remove('active'));
+
         if (index >= 0) {
             navItems[index].classList.add('active');
+            navLinks[index].classList.add('active');
         }
     }
 
