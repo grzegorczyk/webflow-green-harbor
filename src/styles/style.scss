@@ -30,12 +30,12 @@ body {
 }
 
 h1.heading {
-  & b {
+  & strong {
     color: var(--eco-sand-80);
     font-family: var(--all-round-gothic);
   }
 
-  & i {
+  & em {
     color: var(--eco-sand-80);
     font-family: var(--richmond-text);
   }
