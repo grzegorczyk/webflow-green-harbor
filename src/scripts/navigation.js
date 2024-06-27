@@ -146,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set Navbar Background Width
     function setNavbarBackgroundWidth() {
         const activeItem = document.querySelector('.nav-item.active');
-        const parentElement = document.querySelector('.nav-list');
         if (activeItem) {
             const iItem = activeItem.querySelector('i');
             const span = activeItem.querySelector('span');
@@ -188,5 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setActiveNavItem();
     updateActiveDivWidth();
-    checkNavbarBackgroundPostionOnScroll();
+    //checkNavbarBackgroundPostionOnScroll();
+    setTimeout(checkNavbarBackgroundPostionOnScroll, 100); //todo: ohne timeout
 });
