@@ -1,0 +1,179 @@
+@keyframes slideRight {
+  from {
+    transform: translateX(-1rem);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(1rem);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+div#navBarWrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  div.navbarout {
+    display: inline-block;
+    background-color: white;
+    border-radius: 100px;
+    padding: 7px;
+
+    nav.navbar {
+      display: inline-block;
+
+      ul.nav-list {
+        position: relative;
+        display: flex;
+        gap: 0;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        li {
+          &.animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            border-radius: 100px;
+            width: 0;
+            transition: left 0.3s ease, width 0.3s ease;
+            background-color: var(--summer-green-light);
+          }
+
+          &.nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            z-index: 2;
+            color: var(--black);
+            transition: color 0.3s ease;
+
+            a {
+              display: flex;
+              align-items: center;
+              color: var(--black);
+              text-align: center;
+              text-decoration: none;
+              transition: color 0.3s ease;
+
+              i {
+                padding: 14px 20px;
+              }
+
+              > div {
+                display: flex;
+                align-items: center;
+                position: relative;
+                width: 0;
+                height: 100%;
+                overflow: hidden;
+                transition: width .3s ease;
+
+                > span {
+                  display: inline-block;
+                  opacity: 0;
+                  white-space: nowrap;
+                  transform-origin: center center;
+                  padding-right: 20px;
+                  transition: opacity .3s ease;
+                }
+
+              }
+            }
+
+            &.active {
+              color: var(--summer-green);
+              z-index: 3;
+
+              a {
+                color: var(--summer-green);
+
+                > div {
+                  transition: width .3s ease;
+                  overflow: visible;
+
+                  > span {
+                    opacity: 1;
+                    transition: opacity 1s .2s ease;
+                    animation-duration: 1s;
+                    animation-timing-function: ease;
+                  }
+
+                }
+              }
+
+              &.scroll-down {
+                a {
+                  > div {
+                    > span {
+                      animation-name: slideLeft;
+                    }
+                  }
+                }
+              }
+
+              &.scroll-up {
+                a {
+                  > div {
+                    > span {
+                      animation-name: slideRight;
+                    }
+                  }
+                }
+              }
+            }
+
+            &:hover {
+              color: var(--summer-green);
+
+              a {
+                color: var(--summer-green);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      nav.navbar {
+        ul.nav-list {
+          li {
+            &.nav-item {
+              a {
+                > div {
+                  transition: width .3s ease;
+                  overflow: visible;
+
+                  > span {
+                    animation: none;
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

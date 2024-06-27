@@ -1,0 +1,54 @@
+div#mainLogo {
+  position: absolute;
+  left: 0;
+  width: 20%;
+  height: 100%;
+
+  svg {
+    width: auto;
+    height: 100%;
+
+    path {
+      fill: var(--summer-green);
+    }
+
+    g#Green,
+    g#Harbor {
+      clip-path: url(#mask);
+    }
+  }
+
+  &.scroll {
+    svg {
+      animation: logo;
+      animation-duration: .5s;
+      animation-timing-function: ease;
+
+      @keyframes logo {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      g#mainLogoGreen {
+        transform: translateX(-70%);
+        opacity: 0;
+        transition: transform .8s .2s ease, opacity .8s;
+      }
+
+      g#mainLogoHarbor {
+        opacity: 0;
+        transform: translateX(-90%);
+        transition: transform .8s ease, opacity .8s;
+      }
+    }
+  }
+}

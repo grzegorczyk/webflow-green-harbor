@@ -1,32 +1,11 @@
-:root {
-  --forma-djr-text: forma-djr-text, sans-serif;
-  --richmond-text: richmond-text, sans-serif;
-  --all-round-gothic: all-round-gothic, sans-serif;
-
-  --white: white;
-  --black: black;
-
-  --forrest-green-100: #043023;
-  --forrest-green-80: #20503f;
-  --forrest-green-60: #3c6353;
-  --forrest-green-40: #6b9081;
-  --forrest-green-20: #aac4b3;
-
-  --eco-sand-100: #ffefdf;
-  --eco-sand-80: #faebdc;
-  --eco-sand-60: #f3e7dc;
-  --eco-sand-40: #eee6de;
-  --eco-sand-20: #e2dcd6;
-
-  --vitality-spark-100: #afff06;
-  --vitality-spark-80: #c3ff44;
-  --vitality-spark-60: #d2ff72;
-  --vitality-spark-40: #e2ffa5;
-  --vitality-spark-20: #efffcd;
-}
+@import "scss/variables";
+@import "scss/navigation";
+@import "scss/logo";
+@import "scss/languageSwitch";
 
 body {
   //display: flex;
+  font-family: Arial, sans-serif;
 }
 
 h1.heading {
@@ -39,5 +18,15 @@ h1.heading {
   & em {
     color: var(--eco-sand-80);
     font-family: var(--richmond-text);
+  }
+}
+
+section.section {
+  background: var(--shark-white);
+  height: 120vh;
+  padding: 2rem;
+
+  &:nth-child(odd) {
+    background: var(--pearl-bush);
   }
 }
