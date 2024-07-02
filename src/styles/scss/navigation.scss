@@ -30,11 +30,12 @@ div#navBarWrapper {
   max-width: 1440px;
   margin: 0 auto;
 
+
   div.navbarout {
     display: inline-block;
-    background-color: var(--white);
+    background-color: var(--vitality-spark-100);
     border-radius: 100px;
-    padding: 7px;
+    //padding: 7px;
 
     nav.navbar {
       display: inline-block;
@@ -57,7 +58,7 @@ div#navBarWrapper {
             border-radius: 100px;
             width: 0;
             transition: left 0.3s ease, width 0.3s ease;
-            background-color: var(--forrest-green-100);
+            background-color: var(--vitality-spark-20);
           }
 
           &.nav-item {
@@ -65,19 +66,20 @@ div#navBarWrapper {
             display: flex;
             align-items: center;
             z-index: 2;
-            color: var(--forrest-green-40);
-            transition: color 0.3s ease;
+            color: var(--forrest-green-100);
+            text-shadow: rgba(0,0,0, 0) 0 0 0;
+            transition: color 0.3s ease, transform .3s ease, text-shadow .3s ease;
 
             a {
               display: flex;
               align-items: center;
-              color: var(--forrest-green-40);
+              color: var(--forrest-green-100);
               text-align: center;
               text-decoration: none;
               transition: color 0.3s ease;
 
               i {
-                padding: 14px 20px;
+                padding: 14px 15px;
               }
 
               > div {
@@ -94,7 +96,7 @@ div#navBarWrapper {
                   opacity: 0;
                   white-space: nowrap;
                   transform-origin: center center;
-                  padding-right: 20px;
+                  padding-right: 15px;
                   transition: opacity .3s ease;
                 }
 
@@ -102,11 +104,11 @@ div#navBarWrapper {
             }
 
             &.active {
-              color: var(--vitality-spark-100);
+              //color: var(--vitality-spark-100);
               z-index: 3;
 
               a {
-                color: var(--vitality-spark-100);
+                //color: var(--vitality-spark-100);
 
                 > div {
                   transition: width .3s ease;
@@ -144,10 +146,12 @@ div#navBarWrapper {
             }
 
             &:hover:not(.active) {
-              color: var(--forrest-green-100);
+              transform: translateY(-3px) scale(1.05);
+              text-shadow: rgba(0,0,0, .3) 0 5px 5px;
+              //color: var(--forrest-green-100);
 
               a {
-                color: var(--forrest-green-100);
+                //color: var(--forrest-green-100);
               }
             }
           }

@@ -1,15 +1,30 @@
+@keyframes logo {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 div#mainLogo {
   position: absolute;
   left: 0;
   width: 20%;
   height: 100%;
+  cursor: pointer;
 
   svg {
     width: auto;
     height: 100%;
 
     path {
-      fill: var(--summer-green);
+      fill: var(--white);
     }
 
     g#Green,
@@ -18,25 +33,27 @@ div#mainLogo {
     }
   }
 
+  &.logo-light {
+    svg {
+      path {
+        fill: var(--eco-sand-80);
+      }
+    }
+  }
+
+  &.logo-dark {
+    svg {
+      path {
+        fill: var(--forrest-green-100);
+      }
+    }
+  }
+
   &.scroll {
     svg {
       animation: logo;
       animation-duration: .5s;
       animation-timing-function: ease;
-
-      @keyframes logo {
-        0% {
-          transform: scale(1);
-        }
-
-        50% {
-          transform: scale(1.1);
-        }
-
-        100% {
-          transform: scale(1);
-        }
-      }
 
       g#mainLogoGreen {
         transform: translateX(-70%);
@@ -48,6 +65,26 @@ div#mainLogo {
         opacity: 0;
         transform: translateX(-90%);
         transition: transform .8s ease, opacity .8s;
+      }
+    }
+
+    &:hover {
+      svg {
+        animation: logo;
+        animation-duration: .5s;
+        animation-timing-function: ease;
+
+        g#mainLogoGreen {
+          transform: translateX(0);
+          opacity: 1;
+          transition: transform .8s .2s ease, opacity .8s;
+        }
+
+        g#mainLogoHarbor {
+          opacity: 1;
+          transform: translateX(0);
+          transition: transform .8s ease, opacity .8s;
+        }
       }
     }
   }
