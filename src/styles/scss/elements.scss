@@ -1,0 +1,21 @@
+.hl-circle {
+  color: var(--vitality-spark-100);
+  text-transform: none;
+  font-family: var(--richmond-text);
+  font-style: italic;
+  position: relative;
+  padding: 0 2%;
+
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: var(--forrest-green-100);
+    width: 100%;
+    height: 90%;
+    left: 0;
+    top: 5%;
+    z-index: -1;
+    border-radius: 20rem;
+  }
+}
