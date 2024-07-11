@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Wenn ein solches Element existiert, überprüfen, ob es nicht die Klasse w-condition-invisible hat
         if (basicFeat && !basicFeat.classList.contains('w-condition-invisible')) {
             // Aktion ausführen (kann nach Bedarf angepasst werden)
-            console.log('Element gefunden:', teaserItem);
+            teaserItem.classList.add('feature-teaser');
         }
     });
 });
