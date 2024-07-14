@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const trigger = document.createElement('div');
         trigger.classList.add('Leistung-Trigger-Item');
         trigger.setAttribute('data-index', index);
-        trigger.innerHTML = item.querySelector('.leistung-dropdown-switch .text').innerHTML;
+        trigger.innerHTML = item.querySelector('.leistung-dropdown-switch span div').innerHTML;
         newTriggerPlace.appendChild(trigger);
 
         // Erstellung der Content-Divs
         const content = document.createElement('div');
         content.classList.add('Leistung-Content-Item');
         content.setAttribute('data-index', index);
-        content.innerHTML = item.querySelector('.leistung-dropdown-content').innerHTML;
+        content.innerHTML = item.querySelector('.leistung-dropdown-content .leistung-dropdown-inner').innerHTML;
         newContentPlace.appendChild(content);
     });
 
