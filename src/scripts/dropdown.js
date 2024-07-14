@@ -25,10 +25,10 @@ document.querySelectorAll('.leistung-dropdown-switch').forEach(function(switchEl
 
 document.addEventListener("DOMContentLoaded", function() {
     // 1. Erstellung eines neuen HTML-Aufbaus
-    const newTriggerPlace = document.querySelector('.Leistung-Trigger-Wrapper');
-    const newContentPlace = document.querySelector('.Leistung-Content-Wrapper');
+    const newTriggerPlace = document.querySelector('.leistung-trigger-wrapper');
+    const newContentPlace = document.querySelector('.leistung-content-wrapper');
 
-    const leistungDropdownItems = document.querySelectorAll('.Leistungen-Mobil .leistung-dropdown-item');
+    const leistungDropdownItems = document.querySelectorAll('.leistungen-mobil .leistung-dropdown-item');
 
     leistungDropdownItems.forEach((item, index) => {
         // Erstellung der Trigger-Divs
@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const content = document.createElement('div');
         content.classList.add('Leistung-Content-Item');
         content.setAttribute('data-index', index);
-        content.innerHTML = item.querySelector('.leistung-dropdown-content .leistung-dropdown-inner').innerHTML;
+        content.innerHTML = item.querySelector('.leistung-dropdown-content').innerHTML;
         newContentPlace.appendChild(content);
     });
 
     // 2. Click-Events hinzufügen
-    const triggers = document.querySelectorAll('.Leistung-Trigger-Wrapper .Leistung-Trigger-Item');
-    const contents = document.querySelectorAll('.Leistung-Content-Wrapper .Leistung-Content-Item');
+    const triggers = document.querySelectorAll('.leistung-trigger-wrapper .leistung-trigger-item');
+    const contents = document.querySelectorAll('.leistung-content-wrapper .leistung-content-item');
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', function() {
