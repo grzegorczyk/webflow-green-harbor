@@ -55,6 +55,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // 2. Click-Events hinzufügen
     const triggers = document.querySelectorAll('.leistung-trigger-wrapper .leistung-trigger-item');
     const contents = document.querySelectorAll('.leistung-content-wrapper .leistung-content-item');
+    const bgForms = document.querySelectorAll('.leistung-content-wrapper-bg-form-1');
+
+    const setHeightForBgForms = () => {
+        const activeContent = document.querySelector('.leistung-content-wrapper .leistung-content-item.active');
+        const height = activeContent.offsetHeight;
+        bgForms.forEach(bgForm => {
+            bgForm.style.height = `${height}px`;
+        });
+    };
+
+    // Höhe setzen für das initial aktive Element
+    setHeightForBgForms();
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', function() {
@@ -65,8 +77,13 @@ document.addEventListener("DOMContentLoaded", function() {
             // Hinzufügen der active-Klasse zum geklickten Trigger und dem passenden Content
             const index = this.getAttribute('data-index');
             this.classList.add('active');
-            document.querySelector(`.leistung-content-wrapper .leistung-content-item[data-index='${index}']`).classList.add('active');
+            const activeContent = document.querySelector(`.leistung-content-wrapper .leistung-content-item[data-index='${index}']`);
+            activeContent.classList.add('active');
+
+            // Höhe setzen für das aktive Element
+            setHeightForBgForms();
         });
     });
 });
+
 
