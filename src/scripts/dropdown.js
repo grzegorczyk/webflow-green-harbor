@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function() {
     leistungDropdownItems.forEach((item, index) => {
         // Erstellung der Trigger-Divs
         const trigger = document.createElement('div');
-        trigger.classList.add('Leistung-Trigger-Item');
+        trigger.classList.add('leistung-trigger-item');
         trigger.setAttribute('data-index', index);
         trigger.innerHTML = item.querySelector('.leistung-dropdown-switch span div').innerHTML;
         newTriggerPlace.appendChild(trigger);
 
         // Erstellung der Content-Divs
         const content = document.createElement('div');
-        content.classList.add('Leistung-Content-Item');
+        content.classList.add('leistung-content-item');
         content.setAttribute('data-index', index);
         content.innerHTML = item.querySelector('.leistung-dropdown-content').innerHTML;
         newContentPlace.appendChild(content);
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Hinzufügen der active-Klasse zum geklickten Trigger und dem passenden Content
             const index = this.getAttribute('data-index');
             this.classList.add('active');
-            document.querySelector(`.Leistung-Content-Wrapper .Leistung-Content-Item[data-index='${index}']`).classList.add('active');
+            document.querySelector(`.leistung-content-wrapper .leistung-content-item[data-index='${index}']`).classList.add('active');
         });
     });
 });
