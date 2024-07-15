@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const bgForms = document.querySelectorAll('.leistung-content-wrapper-bg-form-1');
 
     const setHeightForBgForms = () => {
-        const activeContent = document.querySelector('.leistung-content-wrapper .leistung-content-item.active');
+        const activeContent = document.querySelector('.leistung-content-wrapper');
         const height = activeContent.offsetHeight;
         bgForms.forEach(bgForm => {
             bgForm.style.height = `${height}px`;
