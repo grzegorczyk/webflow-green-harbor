@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const content = document.createElement('div');
         content.classList.add('leistung-content-item');
         content.setAttribute('data-index', index);
-        content.innerHTML = item.querySelector('.leistung-dropdown-content').innerHTML;
+        content.innerHTML = item.querySelector('.leistung-dropdown-content .leistung-dropdown-inner').innerHTML;
         newContentPlace.appendChild(content);
     });
 
