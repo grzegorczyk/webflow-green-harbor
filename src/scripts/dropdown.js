@@ -44,6 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
         content.setAttribute('data-index', index);
         content.innerHTML = item.querySelector('.leistung-dropdown-content .leistung-dropdown-inner').innerHTML;
         newContentPlace.appendChild(content);
+
+        // Direktes Aktivieren des ersten Elements
+        if (index === 0) {
+            trigger.classList.add('active');
+            content.classList.add('active');
+        }
     });
 
     // 2. Click-Events hinzufügen
@@ -63,3 +69,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
