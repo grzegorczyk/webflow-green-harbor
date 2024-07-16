@@ -29,150 +29,151 @@ div#navBarWrapper {
   right: 0;
   max-width: 1440px;
   margin: 0 auto;
+}
 
+div.navbarout {
+  display: inline-block;
+  background-color: var(--vitality-spark-100);
+  border-radius: 100px;
+  padding: 0;
+  font-size: 1rem;
 
-  div.navbarout {
+  nav.navbar {
     display: inline-block;
-    background-color: var(--vitality-spark-100);
-    border-radius: 100px;
-    //padding: 7px;
 
-    nav.navbar {
-      display: inline-block;
+    ul.nav-list {
+      position: relative;
+      display: flex;
+      gap: 0;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
 
-      ul.nav-list {
-        position: relative;
-        display: flex;
-        gap: 0;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        position: relative;
+      li {
+        &.animation {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          top: 0;
+          border-radius: 100px;
+          width: 0;
+          transition: left 0.3s ease, width 0.3s ease;
+          background-color: var(--vitality-spark-20);
+        }
 
-        li {
-          &.animation {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            top: 0;
-            border-radius: 100px;
-            width: 0;
-            transition: left 0.3s ease, width 0.3s ease;
-            background-color: var(--vitality-spark-20);
-          }
+        &.nav-item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          z-index: 2;
+          color: var(--forrest-green-100);
+          text-shadow: rgba(0,0,0, 0) 0 0 0;
+          transition: color 0.3s ease, transform .3s ease, text-shadow .3s ease;
 
-          &.nav-item {
-            position: relative;
+          a {
             display: flex;
             align-items: center;
-            z-index: 2;
             color: var(--forrest-green-100);
-            text-shadow: rgba(0,0,0, 0) 0 0 0;
-            transition: color 0.3s ease, transform .3s ease, text-shadow .3s ease;
+            text-align: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
 
-            a {
+            i {
+              padding: 3px 15px;
+              font-style: normal;
+            }
+
+            > div {
               display: flex;
               align-items: center;
-              color: var(--forrest-green-100);
-              text-align: center;
-              text-decoration: none;
-              transition: color 0.3s ease;
+              position: relative;
+              width: 0;
+              height: 100%;
+              overflow: hidden;
+              transition: width .3s ease;
 
-              i {
-                padding: 14px 15px;
+              > span {
+                display: inline-block;
+                opacity: 0;
+                white-space: nowrap;
+                transform-origin: center center;
+                padding-right: 15px;
+                transition: opacity .3s ease;
               }
+
+            }
+          }
+
+          &.active {
+            //color: var(--vitality-spark-100);
+            z-index: 3;
+
+            a {
+              //color: var(--vitality-spark-100);
 
               > div {
-                display: flex;
-                align-items: center;
-                position: relative;
-                width: 0;
-                height: 100%;
-                overflow: hidden;
                 transition: width .3s ease;
+                overflow: visible;
 
                 > span {
-                  display: inline-block;
-                  opacity: 0;
-                  white-space: nowrap;
-                  transform-origin: center center;
-                  padding-right: 15px;
-                  transition: opacity .3s ease;
+                  opacity: 1;
+                  transition: opacity 1s .2s ease;
+                  animation-duration: 1s;
+                  animation-timing-function: ease;
                 }
 
               }
             }
 
-            &.active {
-              //color: var(--vitality-spark-100);
-              z-index: 3;
-
+            &.scroll-down {
               a {
-                //color: var(--vitality-spark-100);
-
                 > div {
-                  transition: width .3s ease;
-                  overflow: visible;
-
                   > span {
-                    opacity: 1;
-                    transition: opacity 1s .2s ease;
-                    animation-duration: 1s;
-                    animation-timing-function: ease;
-                  }
-
-                }
-              }
-
-              &.scroll-down {
-                a {
-                  > div {
-                    > span {
-                      animation-name: slideLeft;
-                    }
-                  }
-                }
-              }
-
-              &.scroll-up {
-                a {
-                  > div {
-                    > span {
-                      animation-name: slideRight;
-                    }
+                    animation-name: slideLeft;
                   }
                 }
               }
             }
 
-            &:hover:not(.active) {
-              transform: translateY(-3px) scale(1.05);
-              text-shadow: rgba(0,0,0, .3) 0 5px 5px;
-              //color: var(--forrest-green-100);
-
+            &.scroll-up {
               a {
-                //color: var(--forrest-green-100);
+                > div {
+                  > span {
+                    animation-name: slideRight;
+                  }
+                }
               }
+            }
+          }
+
+          &:hover:not(.active) {
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: rgba(0,0,0, .3) 0 5px 5px;
+            //color: var(--forrest-green-100);
+
+            a {
+              //color: var(--forrest-green-100);
             }
           }
         }
       }
     }
+  }
 
-    &:hover {
-      nav.navbar {
-        ul.nav-list {
-          li {
-            &.nav-item {
-              a {
-                > div {
-                  transition: width .3s ease;
-                  overflow: visible;
+  &:hover {
+    nav.navbar {
+      ul.nav-list {
+        li {
+          &.nav-item {
+            a {
+              > div {
+                transition: width .3s ease;
+                overflow: visible;
 
-                  > span {
-                    animation: none;
-                    opacity: 1;
-                  }
+                > span {
+                  animation: none;
+                  opacity: 1;
                 }
               }
             }
