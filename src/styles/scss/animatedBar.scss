@@ -1,0 +1,94 @@
+.headline-animation-code-copied {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  aspect-ratio: 4 / 1;
+  box-sizing: border-box;
+  position: relative;
+  transform: translateY(20%);
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+}
+
+.animatedSliderWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border: 5px solid var(--vitality-spark-100);
+    height: 100%;
+    top:0;
+    border-radius: 5rem;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+  }
+
+  &:before {
+    width: 45%;
+    left: 0;
+    animation-name: animatedSliderItemBefore;
+
+    @keyframes animatedSliderItemBefore {
+      0% { width: 23%; border-color: var(--eco-sand-80) }
+      50% { width: 66%; border-color: var(--vitality-spark-100) }
+      100% { width: 23%; border-color: var(--eco-sand-80) }
+    }
+  }
+
+  &:after {
+    width: 45%;
+    right: 0;
+
+    animation-name: animatedSliderItemAfter;
+
+    @keyframes animatedSliderItemAfter {
+      0% { width: 63%; border-color: var(--eco-sand-80)}
+      50% { width: 23%; border-color: var(--vitality-spark-100) }
+      100% { width: 63%; border-color: var(--eco-sand-80) }
+    }
+  }
+
+  svg {
+    position: absolute;
+    height: 130%;
+    width: auto;
+    top: -15%;
+    transform: translateX(-50%);
+    //left: 30%;
+    animation-name: animatedSliderWrapperSVG;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    z-index: 2;
+    background-color: var(--forrest-green-100);
+    border-radius: 5rem;
+
+    path {
+      fill: var(--vitality-spark-100);
+
+      animation-name: animatedSliderWrapperSVGPath;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+
+      @keyframes animatedSliderWrapperSVGPath {
+        0% { fill: var(--eco-sand-80); }
+        50% { fill: var(--vitality-spark-100); }
+        100% { fill: var(--eco-sand-80); }
+      }
+    }
+
+    @keyframes animatedSliderWrapperSVG {
+      0% { left: 30%; }
+      50% { left: 70%; }
+      100% { left: 30%; }
+    }
+  }
+}
