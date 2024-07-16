@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newNode.innerHTML = sourceElement.innerHTML;
 
         // Höhe des span#Headline-Animation-Code-Target messen
-        var targetHeight = targetElement.offsetHeight;
+        var targetHeight = targetElement.offsetHeight * 0.7;
 
         // Höhe inline an kopierter-inhalt hinzufügen
         newNode.style.height = targetHeight + 'px';
