@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        setTimeout(setNavbarBackgroundWidth, 100); //todo: ohne timeout
+        setTimeout(setNavbarBackgroundWidth, 200); //todo: ohne timeout
     }
 
     // Set div width for each Item
