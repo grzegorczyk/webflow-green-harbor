@@ -190,3 +190,23 @@ document.addEventListener('DOMContentLoaded', () => {
     //checkNavbarBackgroundPostionOnScroll();
     setTimeout(checkNavbarBackgroundPostionOnScroll, 100); //todo: ohne timeout
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Elemente abrufen
+    var navbarWrapper = document.getElementById("navbar-wrapper");
+    var navbarBackWrapper = document.getElementById("navbar-back-wrapper");
+
+    // Aktuellen URL-Pfad abrufen
+    var path = window.location.pathname;
+
+    // Überprüfen, ob der Pfad die Startseite ist
+    if (path === "/" || path === "/index.html") {
+        navbarWrapper.style.display = "inline-block";  // Element 1 anzeigen
+    } else {
+        navbarBackWrapper.style.display = "flex";  // Element 2 anzeigen
+        navbarBackWrapper.onclick = function() {
+            history.back();  // Zur vorherigen Seite zurückkehren
+        };
+    }
+});
+
