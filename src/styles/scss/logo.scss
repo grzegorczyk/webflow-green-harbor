@@ -12,10 +12,10 @@
   }
 }
 
+
+
 div#mainLogo {
   svg {
-    width: auto;
-    height: 60px;
 
     path {
       fill: var(--white);
@@ -45,7 +45,7 @@ div#mainLogo {
 
   &.scroll {
     svg {
-      height: 42px;
+      //height: 42px;
       animation: logo;
       animation-duration: .5s;
       animation-timing-function: ease;
