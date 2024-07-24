@@ -189,20 +189,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-        //removeInitOpen();
+        removeInitOpen();
         clearDivWidth();
         updateActiveDivWidth();
         checkNavbarBackgroundPostionOnScroll();
     });
 
     navbar.addEventListener('mouseenter', () => {
-        //removeInitOpen();
+        removeInitOpen();
         updateAllDivWidths();
         checkNavbarBackgroundPostionOnHover();
     });
 
     navbar.addEventListener('mouseleave', () => {
-        //removeInitOpen();
+        removeInitOpen();
         clearDivWidth();
         updateActiveDivWidth();
         checkNavbarBackgroundPostionOnScroll();
