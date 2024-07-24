@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('.nav-item');
     const navbar = document.querySelector('.navbar');
     const animation = document.querySelector('.animation');
+    const navbarout = document.querySelector('.navbarout');
     const offset = 200; // Offset von 200px
     let sections = [];
     let currentActiveIndex = -1; // To store the current active section index
     let lastScrollY = window.scrollY; // To store the last scroll position
+
 
     let isHoveringOverNavbar = false;
 
@@ -26,6 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             sections.push(section);
         }
     });
+
+    function removeInitOpen() {
+        if (navbarout) {
+            navbarout.classList.remove('open');
+        }
+    }
 
     // Set activ and scroll-direction class
     function setActiveNavItem() {
@@ -69,6 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Clear all div inline Width accept active
+    function clearOtherDivWidth() {
+        navItems.forEach(item => {
+            const div = item.querySelector('div');
+            if (div && !item.classList.contains('active')) {
+                div.style.width = '';
+            }
+        });
+    }
+
     // Set div width for activ Item
     function updateActiveDivWidth() {
         const activeItem = document.querySelector('.nav-item.active');
@@ -81,18 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        setTimeout(setNavbarBackgroundWidth, 200); //todo: ohne timeout
+        setTimeout(setNavbarBackgroundWidth, 100); //todo: ohne timeout
     }
 
     // Set div width for each Item
-    function updateAllDivWidths() {
+    function updateAllDivWidths(openAll) {
         navItems.forEach(item => {
             const aItem = item.querySelector('a');
             const div = aItem.querySelector('div');
             const span = aItem.querySelector('span'); // Inneres span-Element
             const parentLi = item; // item selbst ist das li-Element
 
-            if (aItem && div && span && !parentLi.classList.contains('active')) { // Ensure all elements exist and li doesn't have 'active' class
+            if (aItem && div && span && (openAll || !parentLi.classList.contains('active'))) { // Ensure all elements exist and li doesn't have 'active' class
                 const spanRect = span.getBoundingClientRect();
                 div.style.width = `${spanRect.width}px`;
             }
@@ -160,35 +178,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', () => {
+        removeInitOpen();
         setActiveNavItem();
         if (!isHoveringOverNavbar) {
             checkNavbarBackgroundPostionOnScroll();
+            clearOtherDivWidth();
         } else {
             checkNavbarBackgroundPostionOnHover();
         }
     });
 
     window.addEventListener('resize', () => {
+        //removeInitOpen();
         clearDivWidth();
         updateActiveDivWidth();
         checkNavbarBackgroundPostionOnScroll();
     });
 
     navbar.addEventListener('mouseenter', () => {
+        //removeInitOpen();
         updateAllDivWidths();
         checkNavbarBackgroundPostionOnHover();
     });
 
     navbar.addEventListener('mouseleave', () => {
+        //removeInitOpen();
         clearDivWidth();
         updateActiveDivWidth();
         checkNavbarBackgroundPostionOnScroll();
     });
 
-    setActiveNavItem();
-    updateActiveDivWidth();
-    //checkNavbarBackgroundPostionOnScroll();
-    setTimeout(checkNavbarBackgroundPostionOnScroll, 100); //todo: ohne timeout
+    window.onload = () => {
+        if (navbarout) {
+            navbarout.classList.add('open');
+        }
+
+        setActiveNavItem();
+        updateAllDivWidths();
+        setTimeout(checkNavbarBackgroundPostionOnHover, 100); //todo: ohne timeout
+
+        //updateActiveDivWidth();
+        //updateAllDivWidths(true);
+        //checkNavbarBackgroundPostionOnHover();
+        //checkNavbarBackgroundPostionOnScroll();
+
+        //setActiveNavItem();
+        //updateActiveDivWidth();
+        //setTimeout(checkNavbarBackgroundPostionOnScroll, 100); //todo: ohne timeout
+    };
+
+
 });
 
 document.addEventListener("DOMContentLoaded", function() {

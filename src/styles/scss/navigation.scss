@@ -20,15 +20,15 @@
 
 
 div#navBarWrapper {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   left: 0;
+  top: 30px;
   right: 0;
   max-width: 1440px;
   margin: 0 auto;
-  height: 100%;
 }
 
 div.navbarout {
@@ -170,7 +170,7 @@ div.navbarout {
             //color: var(--forrest-green-100);
 
             &:before {
-              display: block;
+              //display: block;
               transform: scale(1, 1);
               transform-origin: top center;
             }
@@ -184,6 +184,7 @@ div.navbarout {
     }
   }
 
+  &.open,
   &:hover {
     nav.navbar {
       ul.nav-list {
